@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SmileDent Klinika - Bakının ən premium diş klinikası. İmplant, ağardıcı, ortodontiya və kosmetik diş müalicəsi. Peşəkar həkimlər, müasir texnologiya.">
+<meta name="keywords" content="diş klinikası, implant, diş ağardıcı, ortodontiya, Bakı, SmileDent">
+<meta name="author" content="SmileDent Clinic">
+<meta property="og:title" content="SmileDent Klinika - Mükəmməl Gülüşünüz Buradan Başlayır">
+<meta property="og:description" content="Bakının ən etibarlı diş klinikası. 5000+ xoşbəxt pasient, 15+ il təcrübə.">
+<title>SmileDent Klinika | Premium Diş Müalicəsi - Bakı</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("XM6ktL18fgoiORT4A");</script>
+
+<style>
+:root {
+  --navy: #0F172A;
+  --navy-light: #1E293B;
+  --blue: #2563EB;
+  --blue-light: #3B82F6;
+  --gold: #D4AF37;
+  --gold-light: #E8C84A;
+  --white: #FFFFFF;
+  --gray: #F8FAFC;
+  --gray-mid: #E2E8F0;
+  --text-muted: #64748B;
+  --text-body: #334155;
+  --shadow-sm: 0 2px 12px rgba(15,23,42,0.08);
+  --shadow-md: 0 8px 32px rgba(15,23,42,0.12);
+  --shadow-lg: 0 20px 60px rgba(15,23,42,0.16);
+  --shadow-gold: 0 8px 32px rgba(212,175,55,0.25);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-body);
+  background: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+
+img { max-width: 100%; display: block; }
+
+a { text-decoration: none; color: inherit; }
+
+/* ─── LOADER ─── */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.hidden { opacity: 0; visibility: hidden; }
+.loader-inner {
+  text-align: center;
+}
+.loader-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--white); letter-spacing: 1px;
+}
+.loader-logo span { color: var(--gold); }
+.loader-bar {
+  margin-top: 20px; width: 200px; height: 3px;
+  background: rgba(255,255,255,0.15); border-radius: 99px; overflow: hidden;
+}
+.loader-bar-fill {
+  height: 100%; background: var(--gold); border-radius: 99px;
+  animation: loadBar 1.8s ease forwards;
+}
+@keyframes loadBar { 0%{width:0} 100%{width:100%} }
+
+/* ─── NAVBAR ─── */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 5%;
+  height: 80px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: var(--transition);
+  background: transparent;
+}
+#navbar.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-sm);
+  height: 68px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--white); letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+#navbar.scrolled .nav-logo { color: var(--navy); }
+.nav-logo span { color: var(--gold); }
+.nav-links {
+  display: flex; align-items: center; gap: 8px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.88rem; font-weight: 500;
+  color: rgba(255,255,255,0.88);
+  padding: 8px 14px; border-radius: 8px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+#navbar.scrolled .nav-links a { color: var(--navy-light); }
+.nav-links a:hover { color: var(--gold) !important; background: rgba(212,175,55,0.08); }
+.nav-cta {
+  background: var(--gold) !important;
+  color: var(--navy) !important;
+  font-weight: 600 !important;
+  padding: 10px 22px !important;
+  border-radius: 50px !important;
+  box-shadow: var(--shadow-gold);
+}
+.nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 26px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: var(--transition);
+}
+#navbar.scrolled .hamburger span { background: var(--navy); }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none; position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: var(--white);
+  padding: 20px 5%;
+  box-shadow: var(--shadow-md);
+  border-top: 2px solid var(--gold);
+  z-index: 999;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block; padding: 14px 0;
+  font-size: 1rem; font-weight: 500;
+  color: var(--navy);
+  border-bottom: 1px solid var(--gray-mid);
+  transition: var(--transition);
+}
+.mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a:hover { color: var(--gold); padding-left: 8px; }
+
+/* ─── HERO ─── */
+#hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=85');
+  background-size: cover; background-position: center;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.75) 55%, rgba(37,99,235,0.35) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 120px 5% 80px;
+  max-width: 720px;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(212,175,55,0.15);
+  border: 1px solid rgba(212,175,55,0.4);
+  color: var(--gold);
+  padding: 8px 18px; border-radius: 50px;
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 28px;
+  backdrop-filter: blur(10px);
+  opacity: 0; animation: fadeUp 0.7s 0.3s forwards;
+}
+.hero-h1 {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-weight: 800; color: var(--white);
+  line-height: 1.15; margin-bottom: 20px;
+  opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
+}
+.hero-h1 em { color: var(--gold); font-style: normal; }
+.hero-sub {
+  font-size: 1.1rem; color: rgba(255,255,255,0.8);
+  max-width: 540px; margin-bottom: 40px;
+  line-height: 1.7;
+  opacity: 0; animation: fadeUp 0.7s 0.7s forwards;
+}
+.hero-btns {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 52px;
+  opacity: 0; animation: fadeUp 0.7s 0.9s forwards;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700; font-size: 0.95rem;
+  padding: 16px 32px; border-radius: 50px;
+  border: none; cursor: pointer;
+  box-shadow: var(--shadow-gold);
+  transition: var(--transition);
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,175,55,0.4); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent;
+  color: var(--white);
+  font-weight: 600; font-size: 0.95rem;
+  padding: 15px 30px; border-radius: 50px;
+  border: 1.5px solid rgba(255,255,255,0.45);
+  cursor: pointer; transition: var(--transition);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+.hero-trust {
+  display: flex; gap: 24px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.7s 1.1s forwards;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,0.75); font-size: 0.85rem;
+}
+.trust-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(212,175,55,0.2);
+  border: 1px solid rgba(212,175,55,0.4);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 0.9rem; flex-shrink: 0;
+}
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 1px;
+  animation: bounce 2s infinite;
+}
+.hero-scroll i { font-size: 1rem; }
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+/* ─── SECTION BASE ─── */
+section { padding: 100px 5%; }
+.section-header { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+.section-label {
+  display: inline-block;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--gold); background: rgba(212,175,55,0.1);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 6px 16px; border-radius: 50px; margin-bottom: 18px;
+}
+.section-title { font-size: clamp(1.9rem, 3.5vw, 2.8rem); color: var(--navy); margin-bottom: 16px; }
+.section-sub { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+
+/* ─── SERVICES ─── */
+#services { background: var(--gray); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 1200px; margin: 0 auto;
+}
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-mid);
+  position: relative; overflow: hidden;
+  transition: var(--transition);
+  cursor: default;
+}
+.service-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--blue));
+  transform: scaleX(0); transform-origin: left;
+  transition: var(--transition);
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 64px; height: 64px; border-radius: 16px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.1), rgba(212,175,55,0.1));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; color: var(--blue);
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+.service-card:hover .service-icon { background: var(--blue); color: var(--white); transform: scale(1.05); }
+.service-card h3 { font-size: 1.25rem; color: var(--navy); margin-bottom: 12px; }
+.service-card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; margin-bottom: 20px; }
+.service-link {
+  color: var(--blue); font-weight: 600; font-size: 0.88rem;
+  display: flex; align-items: center; gap: 6px;
+  transition: var(--transition);
+}
+.service-card:hover .service-link { color: var(--gold); gap: 10px; }
+.service-price {
+  position: absolute; top: 20px; right: 20px;
+  background: rgba(212,175,55,0.12);
+  color: var(--gold); font-size: 0.78rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 50px;
+  border: 1px solid rgba(212,175,55,0.3);
+}
+
+/* ─── ABOUT ─── */
+#about { background: var(--white); }
+.about-wrapper {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.about-image-wrap {
+  position: relative;
+}
+.about-img-main {
+  width: 100%; border-radius: 24px;
+  height: 520px; object-fit: cover;
+  box-shadow: var(--shadow-lg);
+}
+.about-badge-float {
+  position: absolute; bottom: -20px; right: -20px;
+  background: var(--navy);
+  border-radius: 20px; padding: 24px 28px;
+  text-align: center; box-shadow: var(--shadow-md);
+  border: 2px solid rgba(212,175,55,0.3);
+}
+.about-badge-float .num {
+  display: block; font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 800; color: var(--gold);
+}
+.about-badge-float .label { color: rgba(255,255,255,0.7); font-size: 0.8rem; }
+.about-content .section-header { text-align: left; margin: 0 0 36px; }
+.about-pills {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;
+}
+.about-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--gray); border-radius: 50px;
+  padding: 10px 18px; font-size: 0.85rem; font-weight: 500;
+  color: var(--navy);
+}
+.about-pill i { color: var(--gold); }
+.about-text { color: var(--text-muted); line-height: 1.8; margin-bottom: 14px; font-size: 0.97rem; }
+.about-cta { margin-top: 32px; }
+
+/* ─── DOCTORS ─── */
+#doctors { background: var(--gray); }
+.doctors-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(310px,1fr));
+  gap: 32px; max-width: 1100px; margin: 0 auto;
+}
+.doctor-card {
+  background: var(--white); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-mid);
+  transition: var(--transition);
+}
+.doctor-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.doctor-img-wrap {
+  position: relative; overflow: hidden; height: 300px;
+}
+.doctor-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
+  transition: transform 0.5s ease;
+}
+.doctor-card:hover .doctor-img-wrap img { transform: scale(1.05); }
+.doctor-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15,23,42,0.7) 0%, transparent 50%);
+}
+.doctor-socials {
+  position: absolute; top: 16px; right: 16px;
+  display: flex; flex-direction: column; gap: 8px;
+  opacity: 0; transform: translateX(16px);
+  transition: var(--transition);
+}
+.doctor-card:hover .doctor-socials { opacity: 1; transform: translateX(0); }
+.doc-social-btn {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(255,255,255,0.9);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy); font-size: 0.9rem;
+  transition: var(--transition);
+}
+.doc-social-btn:hover { background: var(--gold); color: var(--white); }
+.doctor-body { padding: 28px; }
+.doctor-specialty {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 8px;
+}
+.doctor-body h3 { font-size: 1.35rem; color: var(--navy); margin-bottom: 6px; }
+.doctor-exp {
+  display: flex; align-items: center; gap: 6px;
+  color: var(--text-muted); font-size: 0.85rem; margin-bottom: 14px;
+}
+.doctor-exp i { color: var(--blue); }
+.doctor-body p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+
+/* ─── WHY CHOOSE ─── */
+#why { background: var(--navy); }
+#why .section-title { color: var(--white); }
+#why .section-sub { color: rgba(255,255,255,0.6); }
+.why-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 24px; max-width: 1100px; margin: 0 auto;
+}
+.why-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+}
+.why-card:hover {
+  background: rgba(212,175,55,0.08);
+  border-color: rgba(212,175,55,0.3);
+  transform: translateY(-4px);
+}
+.why-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: rgba(212,175,55,0.15);
+  border: 1px solid rgba(212,175,55,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; color: var(--gold); margin-bottom: 22px;
+  transition: var(--transition);
+}
+.why-card:hover .why-icon { background: var(--gold); color: var(--navy); }
+.why-card h3 { font-size: 1.15rem; color: var(--white); margin-bottom: 12px; }
+.why-card p { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.7; }
+
+/* ─── STATS ─── */
+#stats { background: var(--white); padding: 80px 5%; }
+.stats-bar {
+  display: flex; justify-content: center;
+  gap: 0; flex-wrap: wrap;
+  max-width: 1000px; margin: 0 auto;
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.stat-item {
+  flex: 1; min-width: 200px;
+  padding: 48px 32px; text-align: center;
+  border-right: 1px solid var(--gray-mid);
+  position: relative; transition: var(--transition);
+}
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: var(--gray); }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 800; color: var(--navy);
+  line-height: 1; margin-bottom: 8px;
+  display: flex; align-items: baseline; justify-content: center; gap: 2px;
+}
+.stat-num span { color: var(--gold); }
+.stat-label { color: var(--text-muted); font-size: 0.88rem; font-weight: 500; }
+
+/* ─── TESTIMONIALS ─── */
+#testimonials { background: var(--gray); }
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 28px; max-width: 1100px; margin: 0 auto;
+}
+.review-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 36px; box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-mid);
+  transition: var(--transition);
+  position: relative;
+}
+.review-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.review-card::before {
+  content: '\201C';
+  position: absolute; top: 20px; right: 28px;
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem; color: rgba(212,175,55,0.15);
+  line-height: 1;
+}
+.stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 2px; }
+.review-text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+.reviewer {
+  display: flex; align-items: center; gap: 14px;
+  border-top: 1px solid var(--gray-mid); padding-top: 20px;
+}
+.reviewer-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.reviewer-name { font-weight: 600; color: var(--navy); font-size: 0.95rem; }
+.reviewer-detail { color: var(--text-muted); font-size: 0.8rem; }
+
+/* ─── FAQ ─── */
+#faq { background: var(--white); }
+.faq-wrap { max-width: 780px; margin: 0 auto; }
+.faq-item {
+  border: 1px solid var(--gray-mid);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px; overflow: hidden;
+  transition: var(--transition);
+}
+.faq-item.open { border-color: rgba(37,99,235,0.3); box-shadow: var(--shadow-sm); }
+.faq-question {
+  padding: 22px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; background: var(--white);
+  transition: var(--transition);
+}
+.faq-question:hover { background: var(--gray); }
+.faq-q-text { font-weight: 600; color: var(--navy); font-size: 0.97rem; flex: 1; margin-right: 16px; }
+.faq-icon {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--gray); display: flex; align-items: center; justify-content: center;
+  color: var(--blue); font-size: 0.85rem; flex-shrink: 0;
+  transition: var(--transition);
+}
+.faq-item.open .faq-icon { background: var(--blue); color: var(--white); transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  background: var(--gray);
+}
+.faq-answer p { padding: 0 24px 22px; color: var(--text-muted); font-size: 0.93rem; line-height: 1.8; }
+.faq-item.open .faq-answer { max-height: 300px; }
+
+/* ─── APPOINTMENT ─── */
+#appointment { background: var(--gray); }
+.appt-wrapper {
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: 64px; align-items: start;
+  max-width: 1100px; margin: 0 auto;
+}
+.appt-info h2 { font-size: 2rem; color: var(--navy); margin-bottom: 16px; }
+.appt-info p { color: var(--text-muted); line-height: 1.8; margin-bottom: 32px; }
+.appt-features { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.appt-features li {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--text-body); font-size: 0.9rem;
+}
+.appt-features i { color: var(--gold); font-size: 0.9rem; }
+.appt-form {
+  background: var(--white); border-radius: var(--radius);
+  padding: 44px 40px; box-shadow: var(--shadow-md);
+  border: 1px solid var(--gray-mid);
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block; font-size: 0.82rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 8px; letter-spacing: 0.3px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 13px 16px;
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-sm);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; color: var(--text-body);
+  background: var(--white);
+  transition: var(--transition); outline: none;
+  -webkit-appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+}
+.form-group textarea { resize: vertical; min-height: 110px; }
+.form-full { grid-column: 1/-1; }
+.form-submit {
+  width: 100%; padding: 16px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  color: var(--white); border: none;
+  border-radius: 50px; font-family: 'DM Sans', sans-serif;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  transition: var(--transition);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(37,99,235,0.35); }
+.form-note { text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 14px; }
+.form-success {
+  display: none; text-align: center; padding: 24px;
+  background: rgba(37,99,235,0.05); border-radius: var(--radius-sm);
+  border: 1px solid rgba(37,99,235,0.2); margin-top: 16px;
+}
+.form-success i { font-size: 2rem; color: var(--gold); margin-bottom: 10px; }
+.form-success p { color: var(--navy); font-weight: 600; }
+
+/* ─── CONTACT ─── */
+#contact { background: var(--navy); }
+#contact .section-title { color: var(--white); }
+#contact .section-sub { color: rgba(255,255,255,0.6); }
+.contact-cards {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 24px; max-width: 1000px; margin: 0 auto;
+}
+.contact-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius); padding: 36px 28px;
+  text-align: center; transition: var(--transition);
+  cursor: pointer;
+}
+.contact-card:hover { background: rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.4); transform: translateY(-4px); }
+.contact-card .cc-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(212,175,55,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: var(--gold);
+  margin: 0 auto 20px;
+  transition: var(--transition);
+}
+.contact-card:hover .cc-icon { background: var(--gold); color: var(--navy); }
+.contact-card h4 { color: rgba(255,255,255,0.7); font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; font-family: 'DM Sans',sans-serif; }
+.contact-card p { color: var(--white); font-weight: 600; font-size: 1rem; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #080F1E;
+  padding: 64px 5% 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 48px;
+}
+.footer-brand .nav-logo { color: var(--white); display: inline-block; margin-bottom: 16px; font-size: 1.4rem; }
+.footer-brand p { color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.8; margin-bottom: 24px; }
+.footer-social { display: flex; gap: 10px; }
+.social-btn {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); font-size: 0.95rem;
+  transition: var(--transition);
+}
+.social-btn:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); transform: translateY(-2px); }
+.footer-col h5 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { color: rgba(255,255,255,0.45); font-size: 0.88rem; transition: var(--transition); }
+.footer-col a:hover { color: var(--white); padding-left: 4px; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 0;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+}
+.footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.82rem; }
+.footer-bottom a { color: var(--gold); transition: var(--transition); }
+.footer-bottom a:hover { color: var(--gold-light); }
+.dev-credit {
+  text-align: center; margin-top: 4px;
+  color: rgba(255,255,255,0.25); font-size: 0.78rem;
+}
+.dev-credit strong { color: rgba(255,255,255,0.5); }
+
+/* ─── SCROLL ANIMATIONS ─── */
+.reveal {
+  opacity: 0; transform: translateY(36px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* ─── FLOATING WHATSAPP ─── */
+.float-wa {
+  position: fixed; bottom: 28px; right: 28px; z-index: 800;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1.6rem;
+  box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+  transition: var(--transition);
+  animation: pulse-wa 2.5s infinite;
+}
+.float-wa:hover { transform: scale(1.1); }
+@keyframes pulse-wa {
+  0%,100%{ box-shadow:0 8px 28px rgba(37,211,102,0.4) }
+  50%{ box-shadow:0 8px 40px rgba(37,211,102,0.7) }
+}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 992px) {
+  .about-wrapper { grid-template-columns: 1fr; gap: 48px; }
+  .about-badge-float { right: 0; bottom: -12px; }
+  .appt-wrapper { grid-template-columns: 1fr; gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media(max-width: 768px) {
+  section { padding: 72px 5%; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .stats-bar { flex-direction: column; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--gray-mid); }
+  .stat-item:last-child { border-bottom: none; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .appt-form { padding: 32px 24px; }
+  .about-img-main { height: 360px; }
+}
+@media(max-width: 480px) {
+  .hero-btns { flex-direction: column; }
+  .btn-primary, .btn-outline { text-align: center; justify-content: center; }
+  .doctor-img-wrap { height: 260px; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">Smile<span>Dent</span></div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/994997199929" target="_blank" class="float-wa" title="WhatsApp ilə yazın">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Smile<span>Dent</span> <small style="font-size:0.6rem;font-family:'DM Sans';font-weight:400;opacity:0.7">Klinika</small></a>
+  <ul class="nav-links">
+    <li><a href="#hero">Ana Səhifə</a></li>
+    <li><a href="#services">Xidmətlər</a></li>
+    <li><a href="#about">Haqqımızda</a></li>
+    <li><a href="#doctors">Həkimlər</a></li>
+    <li><a href="#testimonials">Rəylər</a></li>
+    <li><a href="#contact">Əlaqə</a></li>
+    <li><a href="#appointment" class="nav-cta">Qeydiyyat</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="closeMobile()">Ana Səhifə</a>
+  <a href="#services" onclick="closeMobile()">Xidmətlər</a>
+  <a href="#about" onclick="closeMobile()">Haqqımızda</a>
+  <a href="#doctors" onclick="closeMobile()">Həkimlər</a>
+  <a href="#testimonials" onclick="closeMobile()">Rəylər</a>
+  <a href="#contact" onclick="closeMobile()">Əlaqə</a>
+  <a href="#appointment" onclick="closeMobile()" style="color:var(--gold);font-weight:700">📅 Qeydiyyat</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-award"></i> Bakının №1 Premium Diş Klinikası</div>
+    <h1 class="hero-h1">Mükəmməl Gülüşünüz<br><em>Buradan Başlayır</em></h1>
+    <p class="hero-sub">SmileDent Klinikada müasir texnologiya və peşəkar həkimlərimizlə ağrısız, etibarlı diş müalicəsini təcrübə edin. Hər bir gülüş bizim üçün sənətdir.</p>
+    <div class="hero-btns">
+      <a href="#appointment" class="btn-primary"><i class="fas fa-calendar-check"></i> Görüş Rezerv Et</a>
+      <a href="tel:0997199929" class="btn-outline"><i class="fas fa-phone-alt"></i> 099 719 99 29</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-icon"><i class="fas fa-shield-halved"></i></div><span>ISO Sertifikatlı Klinika</span></div>
+      <div class="trust-item"><div class="trust-icon"><i class="fas fa-user-md"></i></div><span>10+ Mütəxəssis Həkim</span></div>
+      <div class="trust-item"><div class="trust-icon"><i class="fas fa-star"></i></div><span>5000+ Xoşbəxt Pasient</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Aşağı</span><i class="fas fa-chevron-down"></i></div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-label">Xidmətlərimiz</span>
+    <h2 class="section-title">Tam Spektrli Diş Müalicəsi</h2>
+    <p class="section-sub">Müasir avadanlıq və sertifikatlı mütəxəssislərimizlə hər növ diş problemini həll edirik.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal delay-1">
+      <div class="service-price">200₼ - dən</div>
+      <div class="service-icon"><i class="fas fa-tooth"></i></div>
+      <h3>Dental İmplant</h3>
+      <p>İtirdiyin dişlərini ömürlük bərpa et. Titanium implantlarımız ən yüksək keyfiyyətə malikdir və 25 il zəmanət verilir.</p>
+      <div class="service-link">Ətraflı <i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="service-card reveal delay-2">
+      <div class="service-price">150₼ - dən</div>
+      <div class="service-icon"><i class="fas fa-magic-wand-sparkles"></i></div>
+      <h3>Diş Ağardıcı</h3>
+      <p>Peşəkar ZOOM texnologiyası ilə 1 saat ərzində 8-10 ton daha ağ gülüşə sahib ol. Təhlükəsiz və effektiv.</p>
+      <div class="service-link">Ətraflı <i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="service-card reveal delay-3">
+      <div class="service-price">300₼ - dən</div>
+      <div class="service-icon"><i class="fas fa-align-center"></i></div>
+      <h3>Ortodontiya</h3>
+      <p>Ənənəvi breketlər və görünməz Invisalign ilə dişlərini düzəlt. Uşaqlar və yetkinlər üçün müxtəlif seçimlər.</p>
+      <div class="service-link">Ətraflı <i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="service-card reveal delay-1">
+      <div class="service-price">180₼ - dən</div>
+      <div class="service-icon"><i class="fas fa-star"></i></div>
+      <h3>Kosmetik Diş</h3>
+      <p>Veneerlar, bonding və gülüş dizaynı ilə sənin ideal gülüşünü yaradaq. Hollywood smile artıq əlçatandır.</p>
+      <div class="service-link">Ətraflı <i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="service-card reveal delay-2">
+      <div class="service-price">80₼ - dən</div>
+      <div class="service-icon"><i class="fas fa-syringe"></i></div>
+      <h3>Kanal Müalicəsi</h3>
+      <p>Ağrısız kanal müalicəsi ilə dişini qoru. Müasir rotasyon sistemlər ilə sürətli, dəqiq nəticə alırıq.</p>
+      <div class="service-link">Ətraflı <i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="service-card reveal delay-3">
+      <div class="service-price">40₼ - dən</div>
+      <div class="service-icon"><i class="fas fa-child"></i></div>
+      <h3>Uşaq Diş Həkimi</h3>
+      <p>Uşaqlar üçün xüsusi dizayn edilmiş oyun otağı və qorxusuz müalicə metodları ilə sağlam diş vərdişləri formalaşdırırıq.</p>
+      <div class="service-link">Ətraflı <i class="fas fa-arrow-right"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-wrapper">
+    <div class="about-image-wrap reveal-left">
+      <img class="about-img-main" src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=800&q=80" alt="SmileDent Klinika müasir müalicə otağı">
+      <div class="about-badge-float">
+        <span class="num">15+</span>
+        <span class="label">İl Təcrübə</span>
+      </div>
+    </div>
+    <div class="about-content reveal-right">
+      <div class="section-header">
+        <span class="section-label">Haqqımızda</span>
+        <h2 class="section-title">Bakının Ən Etibarlı Diş Klinikası</h2>
+      </div>
+      <div class="about-pills">
+        <div class="about-pill"><i class="fas fa-check-circle"></i> ISO 9001 Sertifikatlı</div>
+        <div class="about-pill"><i class="fas fa-check-circle"></i> 24/7 Təcili Yardım</div>
+        <div class="about-pill"><i class="fas fa-check-circle"></i> Ağrısız Müalicə</div>
+        <div class="about-pill"><i class="fas fa-check-circle"></i> Sığorta Qəbul</div>
+      </div>
+      <p class="about-text">SmileDent Klinika 2009-cu ildən Bakıda fəaliyyət göstərir. Missiyamız hər kəsə keyfiyyətli, əlçatan diş müalicəsi xidməti göstərməkdir. Müasir texnologiya ilə insani yanaşmanı birləşdirərək xəstələrimizə ən yaxşı nəticəni təmin edirik.</p>
+      <p class="about-text">Klinikamız 3D diaqnostika, lazer diş müalicəsi, rəqəmsal gülüş dizaynı və ağrısız anesteziya sistemləri ilə təchiz edilmişdir. Avropa standartlarında sterilizasiya protokollarına tam uyğunluq təmin edilir.</p>
+      <p class="about-text">Hər xəstənin fərdi ehtiyaclarına uyğun müalicə planı hazırlayır, şəffaf qiymət siyasəti ilə xidmət göstəririk. Sağlam gülüşünüz bizim ən böyük mükafatımızdır.</p>
+      <div class="about-cta">
+        <a href="#appointment" class="btn-primary"><i class="fas fa-calendar-plus"></i> İndi Qeydiyyat Ol</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DOCTORS ─── -->
+<section id="doctors">
+  <div class="section-header reveal">
+    <span class="section-label">Həkim Heyəti</span>
+    <h2 class="section-title">Peşəkar Mütəxəssislərimiz</h2>
+    <p class="section-sub">Beynəlxalq sertifikatlı həkimlərimiz gülüşünü daha gözəl etmək üçün buradalar.</p>
+  </div>
+  <div class="doctors-grid">
+    <div class="doctor-card reveal delay-1">
+      <div class="doctor-img-wrap">
+        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80" alt="Dr. Əli Həsənov">
+        <div class="doctor-overlay"></div>
+        <div class="doctor-socials">
+          <a href="#" class="doc-social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="doc-social-btn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="doctor-body">
+        <div class="doctor-specialty">Baş Cərrah · İmplantologiya</div>
+        <h3>Dr. Əli Həsənov</h3>
+        <div class="doctor-exp"><i class="fas fa-briefcase-medical"></i> 18 il təcrübə</div>
+        <p>Tbilisi Tibb Universitetini bitirən Dr. Həsənov Avropada ixtisas artırmışdır. 3000-dən çox uğurlu implant əməliyyatı həyata keçirib.</p>
+      </div>
+    </div>
+    <div class="doctor-card reveal delay-2">
+      <div class="doctor-img-wrap">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80" alt="Dr. Aynur Məmmədova">
+        <div class="doctor-overlay"></div>
+        <div class="doctor-socials">
+          <a href="#" class="doc-social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="doc-social-btn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="doctor-body">
+        <div class="doctor-specialty">Ortodont · Kosmetik Diş</div>
+        <h3>Dr. Aynur Məmmədova</h3>
+        <div class="doctor-exp"><i class="fas fa-briefcase-medical"></i> 12 il təcrübə</div>
+        <p>Türkiyə Hacettepe Universitetinin məzunu olan Dr. Məmmədova Invisalign sertifikatlı ortodontdur. Gülüş dizaynında mükəmməlliyi ilə tanınır.</p>
+      </div>
+    </div>
+    <div class="doctor-card reveal delay-3">
+      <div class="doctor-img-wrap">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80" alt="Dr. Rauf İsmayılov">
+        <div class="doctor-overlay"></div>
+        <div class="doctor-socials">
+          <a href="#" class="doc-social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="doc-social-btn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="doctor-body">
+        <div class="doctor-specialty">Endodont · Uşaq Diş Həkimi</div>
+        <h3>Dr. Rauf İsmayılov</h3>
+        <div class="doctor-exp"><i class="fas fa-briefcase-medical"></i> 10 il təcrübə</div>
+        <p>ADU Tibb fakültəsini fərqlənmə diplomu ilə bitirən Dr. İsmayılov ağrısız kanal müalicəsi üzrə geniş ixtisas sahibidir. Uşaqlarla xüsusi yanaşması var.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY CHOOSE ─── -->
+<section id="why">
+  <div class="section-header reveal">
+    <span class="section-label">Niyə Biz?</span>
+    <h2 class="section-title">SmileDent Seçməyinizin 6 Səbəbi</h2>
+    <p class="section-sub">Bakıda onlarca klinikadan niyə bizi seçirsiniz? Cavab sadədir — biz fərqliik.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal delay-1">
+      <div class="why-icon"><i class="fas fa-microscope"></i></div>
+      <h3>Müasir Texnologiya</h3>
+      <p>3D CBCT, lazer müalicə, rəqəmsal gülüş dizaynı və CAD/CAM sistemləri ilə ən dəqiq nəticəni əldə edirik.</p>
+    </div>
+    <div class="why-card reveal delay-2">
+      <div class="why-icon"><i class="fas fa-user-doctor"></i></div>
+      <h3>Təcrübəli Həkimlər</h3>
+      <p>Orta hesabla 14 il təcrübəsi olan, beynəlxalq sertifikatlı 10+ mütəxəssis həkimimiz xidmətinizdədir.</p>
+    </div>
+    <div class="why-card reveal delay-3">
+      <div class="why-icon"><i class="fas fa-tag"></i></div>
+      <h3>Əlçatan Qiymətlər</h3>
+      <p>Şəffaf qiymət siyasəti, aylıq taksit imkanı və sığorta qəbulu ilə sağlığa investisiya etmək asandır.</p>
+    </div>
+    <div class="why-card reveal delay-1">
+      <div class="why-icon"><i class="fas fa-ambulance"></i></div>
+      <h3>24/7 Təcili Yardım</h3>
+      <p>Diş ağrısı gözlətmir. Həftənin 7 günü, gecə-gündüz fəaliyyət göstərən təcili yardım xidmətimiz mövcuddur.</p>
+    </div>
+    <div class="why-card reveal delay-2">
+      <div class="why-icon"><i class="fas fa-couch"></i></div>
+      <h3>Rahat Mühit</h3>
+      <p>Xəstə dostlu dizayn, musiqi terapiyası, istilik yastıqları və VIP otaqlarla stress psikolojisini dəyişirik.</p>
+    </div>
+    <div class="why-card reveal delay-3">
+      <div class="why-icon"><i class="fas fa-heart-pulse"></i></div>
+      <h3>Fərdi Müalicə</h3>
+      <p>Hər xəstə üçün fərdi müalicə planı, müntəzəm izləmə və müalicə sonrası konsultasiya daxildir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<section id="stats">
+  <div class="stats-bar">
+    <div class="stat-item reveal">
+      <div class="stat-num"><span id="cnt1">0</span><span>+</span></div>
+      <div class="stat-label">Xoşbəxt Pasient</div>
+    </div>
+    <div class="stat-item reveal delay-1">
+      <div class="stat-num"><span id="cnt2">0</span><span>+</span></div>
+      <div class="stat-label">İl Təcrübə</div>
+    </div>
+    <div class="stat-item reveal delay-2">
+      <div class="stat-num"><span id="cnt3">0</span><span>+</span></div>
+      <div class="stat-label">Beynəlxalq Mükafat</div>
+    </div>
+    <div class="stat-item reveal delay-3">
+      <div class="stat-num"><span id="cnt4">0</span><span>+</span></div>
+      <div class="stat-label">Mütəxəssis Həkim</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <span class="section-label">Pasient Rəyləri</span>
+    <h2 class="section-title">Onlar Nə Düşünür?</h2>
+    <p class="section-sub">Real xəstələrimizin real təcrübələri. Gülüşlərini dəyişdirdik, həyatlarını dəyişdirdik.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card reveal delay-1">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"SmileDent-ə gəlmədən əvvəl diş həkimindən qorxurdum. Amma Dr. Həsənov o qədər peşəkar və anlayışlı idi ki, implant əməliyyatını hiss bile etmədim. İndi gülməkdən özümü saxlaya bilmirəm!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#667eea,#764ba2);color:white">N</div>
+        <div>
+          <div class="reviewer-name">Nigar Əliyeva</div>
+          <div class="reviewer-detail">İmplant xəstəsi · Bakı</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal delay-2">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Hollywood smile istəyirdim ama baha olacaq deyə çəkinirdim. SmileDent-də veneer qiymətləri əlçatan idi, nəticə isə xəyalımdan da gözəl oldu. Dr. Məmmədova mükəmməldir!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c);color:white">E</div>
+        <div>
+          <div class="reviewer-name">Elnur Quliyev</div>
+          <div class="reviewer-detail">Veneer xəstəsi · Sumqayıt</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal delay-3">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Uşağımı diş həkiminə aparmaq dəhşət idi — ağlayır, qışqırırdı. SmileDent uşaq otağı çox gözəldir, Dr. İsmayılov öz ustalığı ilə uşağımı heç incitmədən müalicə etdi. Çox sağ olun!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe);color:white">S</div>
+        <div>
+          <div class="reviewer-name">Səbinə Rəhimova</div>
+          <div class="reviewer-detail">Uşaq xəstəsi valideyni · Bakı</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal delay-1">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Diş ağardıcı seansından sonra həmkarlarım mənə baxıb "nə etdin?" diye sordular. Zoom sistemlə 1 saata 10 ton ağardıldım. Performans inanılmazdır. Qiymət-keyfiyyət mükəmməl!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#43e97b,#38f9d7);color:white">K</div>
+        <div>
+          <div class="reviewer-name">Kamran Əhmədov</div>
+          <div class="reviewer-detail">Ağardıcı xəstəsi · Bakı</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal delay-2">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Breket taxdırmaq 2 il çəkdi ama nəticəyə baxanda hər şey dəydi. Ortodontolog mütəmadi olaraq vəziyyəti yoxladı. Klinika həmişə təmiz, həkimlər həmişə nəzakətli idi."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#fa709a,#fee140);color:white">L</div>
+        <div>
+          <div class="reviewer-name">Leyla Hüseynova</div>
+          <div class="reviewer-detail">Ortodontiya xəstəsi · Gəncə</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal delay-3">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Kanal müalicəsindən çox qorxurdum. Amma Dr. İsmayılov məni əvvəlcə tam rahatlayıb proseduru izah etdi. Prosedur zamanı heç bir ağrı hiss etmədim. Əla peşəkarlıq!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb);color:white">T</div>
+        <div>
+          <div class="reviewer-name">Tural Babayev</div>
+          <div class="reviewer-detail">Kanal müalicəsi · Bakı</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section id="faq">
+  <div class="section-header reveal">
+    <span class="section-label">Tez-tez Verilən Suallar</span>
+    <h2 class="section-title">Cavabını Axtardığın Suallar</h2>
+    <p class="section-sub">Diş sağlığı haqqında ən çox soruşulan suallara peşəkar cavablar.</p>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq-item reveal">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Dental implant əməliyyatı ağrılıdırmı?</span>
+        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer"><p>Xeyr, əməliyyat zamanı lokal anesteziya tətbiq edilir və heç bir ağrı hiss etmirsiniz. Əməliyyatdan sonrakı ilk 2-3 gün cüzi narahatlıq ola bilər, bunu idarə etmək üçün ağrıkəsicilər təyin edilir. Müasir implant texnikamız minimal invazivdir.</p></div>
+    </div>
+    <div class="faq-item reveal delay-1">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Diş ağardıcı nə qədər davam edir?</span>
+        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer"><p>Peşəkar diş ağardıcı proseduru doğru qayğı ilə 1-2 il, bəzən daha uzun davam edir. İldə bir dəfə yenilənmə seansı tövsiyə edirik. Gündəlik çay, qəhvə, şarab istehlakını azaltmaq ömrünü uzadır.</p></div>
+    </div>
+    <div class="faq-item reveal delay-2">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Uşaqlar üçün hansı yaşdan diş həkiminə gəlmək lazımdır?</span>
+        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer"><p>İlk süd dişi çıxdıqda — adətən 6-12 ay arası — ilk ziyarət tövsiyə edilir. Ən geci 12 aylıqda gəlmək lazımdır. Erkən ziyarətlər çürümənin qarşısını alır, uşağın diş həkiminə alışmasını asanlaşdırır.</p></div>
+    </div>
+    <div class="faq-item reveal delay-3">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Sığortamla ödəniş edə bilərəmmi?</span>
+        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer"><p>Bəli, bir çox sığorta şirkəti ilə müqaviləmiz var. Həmçinin AzərGold, Kapital Bank kartları ilə 12 aya qədər faizsiz taksit imkanı təklif edirik. Ətraflı məlumat üçün resepsiyamızla əlaqə saxlayın.</p></div>
+    </div>
+    <div class="faq-item reveal delay-1">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Breket müalicəsi neçə müddət çəkir?</span>
+        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer"><p>Ortodontik müalicə müddəti fərdi vəziyyətə görə dəyişir. Orta hesabla 18-24 ay davam edir. Yüngül hallarda 12 ay kifayət edir. Görünməz Invisalign sistemi ilə isə müalicə müddəti qısalır. İlk müayinədə dəqiq qiymətləndirməni edəcəyik.</p></div>
+    </div>
+    <div class="faq-item reveal delay-2">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Nə qədər tez-tez diş həkiminə getmək lazımdır?</span>
+        <div class="faq-icon"><i class="fas fa-plus"></i></div>
+      </div>
+      <div class="faq-answer"><p>Standart tövsiyəyə görə ildə 2 dəfə — 6 ayda bir — profilaktik yoxlama aparılmalıdır. Bu ziyarətlərdə tartar təmizliyi, çürük yoxlaması və ağız sağlığı qiymətləndirməsi edilir. Müntəzəm yoxlama ciddi problemlərin qarşısını alır.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── APPOINTMENT ─── -->
+<section id="appointment">
+  <div class="appt-wrapper">
+    <div class="appt-info reveal-left">
+      <span class="section-label">Görüş Rezerv Et</span>
+      <h2>Gülüşünüzü Dəyişdirməyə Hazırsınız?</h2>
+      <p>İlk konsultasiyamız pulsuz və öhdəliksizdir. Həkimimiz sizi dinləyəcək, vəziyyətinizi qiymətləndirəcək və ən uyğun müalicə planını təqdim edəcək.</p>
+      <ul class="appt-features">
+        <li><i class="fas fa-check-circle"></i> İlk müayinə tamamilə pulsuzdur</li>
+        <li><i class="fas fa-check-circle"></i> 24 saat ərzində geri dönüş zəmanəti</li>
+        <li><i class="fas fa-check-circle"></i> Online konsultasiya da mövcuddur</li>
+        <li><i class="fas fa-check-circle"></i> Həftəsonu da işləyirik (Şənbə 09:00–18:00)</li>
+        <li><i class="fas fa-check-circle"></i> Nağd, kart, taksit ödəniş imkanı</li>
+      </ul>
+    </div>
+    <div class="appt-form reveal-right">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Ad Soyad *</label>
+          <input type="text" id="fname" placeholder="Adınızı daxil edin">
+        </div>
+        <div class="form-group">
+          <label>Telefon *</label>
+          <input type="tel" id="fphone" placeholder="+994 xx xxx xx xx">
+        </div>
+        <div class="form-group form-full">
+          <label>E-poçt</label>
+          <input type="email" id="femail" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label>Xidmət *</label>
+          <select id="fservice">
+            <option value="">Seçin...</option>
+            <option>Dental İmplant</option>
+            <option>Diş Ağardıcı</option>
+            <option>Ortodontiya (Breket)</option>
+            <option>Kosmetik Diş (Veneer)</option>
+            <option>Kanal Müalicəsi</option>
+            <option>Uşaq Diş Müalicəsi</option>
+            <option>Ümumi Müayinə</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tarix *</label>
+          <input type="date" id="fdate">
+        </div>
+        <div class="form-group form-full">
+          <label>Əlavə Məlumat</label>
+          <textarea id="fmsg" placeholder="Narahatlığınız haqqında qısa məlumat..."></textarea>
+        </div>
+      </div>
+      <button class="form-submit" onclick="submitForm()">
+        <i class="fas fa-calendar-check"></i> Görüş Rezerv Et
+      </button>
+      <p class="form-note"><i class="fas fa-lock" style="color:var(--gold)"></i> Məlumatlarınız tam gizlidir. Spam yoxdur.</p>
+      <div class="form-success" id="formSuccess">
+        <i class="fas fa-circle-check" style="color:var(--gold);font-size:2.5rem;display:block;margin-bottom:12px"></i>
+        <p style="color:var(--navy);font-weight:700;font-size:1.05rem">Müraciətiniz qəbul edildi!</p>
+        <p style="color:var(--text-muted);font-size:0.88rem;margin-top:8px">24 saat ərzində sizinlə əlaqə saxlanılacaq. Zəhmət olmasa telefonu yaxınınızda saxlayın.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-label">Əlaqə</span>
+    <h2 class="section-title">Bizimlə Əlaqə Saxlayın</h2>
+    <p class="section-sub">Sualınız var? Zəng edin, yazın — sizin üçün buradayıq.</p>
+  </div>
+  <div class="contact-cards">
+    <a href="tel:0997199929" class="contact-card reveal delay-1">
+      <div class="cc-icon"><i class="fas fa-phone-alt"></i></div>
+      <h4>Telefon</h4>
+      <p>099 719 99 29</p>
+    </a>
+    <a href="https://wa.me/994997199929" target="_blank" class="contact-card reveal delay-2">
+      <div class="cc-icon"><i class="fab fa-whatsapp"></i></div>
+      <h4>WhatsApp</h4>
+      <p>Yazın, cavab verək</p>
+    </a>
+    <a href="https://www.instagram.com/getsite.az?igsh=Ym5wZzV3aWk4NDd4" target="_blank" class="contact-card reveal delay-3">
+      <div class="cc-icon"><i class="fab fa-instagram"></i></div>
+      <h4>Instagram</h4>
+      <p>@getsite.az</p>
+    </a>
+    <a href="https://www.tiktok.com/@getsite.az?_r=1&_t=ZS-96z8TSg5DRS" target="_blank" class="contact-card reveal delay-1">
+      <div class="cc-icon"><i class="fab fa-tiktok"></i></div>
+      <h4>TikTok</h4>
+      <p>@getsite.az</p>
+    </a>
+    <div class="contact-card reveal delay-2" style="cursor:default">
+      <div class="cc-icon"><i class="fas fa-clock"></i></div>
+      <h4>İş Saatları</h4>
+      <p>B.E–Cümə: 09:00–20:00<br><span style="font-size:0.82rem;opacity:0.7">Şənbə: 09:00–18:00</span></p>
+    </div>
+    <div class="contact-card reveal delay-3" style="cursor:default">
+      <div class="cc-icon"><i class="fas fa-map-marker-alt"></i></div>
+      <h4>Ünvan</h4>
+      <p>Neftçilər pr. 75, Bakı</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo">Smile<span>Dent</span></a>
+      <p>Bakının premium diş klinikası. 2009-cu ildən güvənilir diş sağlığı xidməti. Gülüşünüzü daha parlaq edirik.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/getsite.az?igsh=Ym5wZzV3aWk4NDd4" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@getsite.az?_r=1&_t=ZS-96z8TSg5DRS" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/994997199929" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:0997199929" class="social-btn"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Xidmətlər</h5>
+      <ul>
+        <li><a href="#services">Dental İmplant</a></li>
+        <li><a href="#services">Diş Ağardıcı</a></li>
+        <li><a href="#services">Ortodontiya</a></li>
+        <li><a href="#services">Kosmetik Diş</a></li>
+        <li><a href="#services">Kanal Müalicəsi</a></li>
+        <li><a href="#services">Uşaq Diş Həkimi</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Klinika</h5>
+      <ul>
+        <li><a href="#about">Haqqımızda</a></li>
+        <li><a href="#doctors">Həkim Heyəti</a></li>
+        <li><a href="#why">Niyə Biz?</a></li>
+        <li><a href="#testimonials">Rəylər</a></li>
+        <li><a href="#faq">Suallar</a></li>
+        <li><a href="#contact">Əlaqə</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Əlaqə</h5>
+      <ul>
+        <li><a href="tel:0997199929"><i class="fas fa-phone" style="margin-right:6px;color:var(--gold)"></i>099 719 99 29</a></li>
+        <li><a href="https://wa.me/994997199929" target="_blank"><i class="fab fa-whatsapp" style="margin-right:6px;color:var(--gold)"></i>WhatsApp</a></li>
+        <li><a href="#"><i class="fas fa-map-marker-alt" style="margin-right:6px;color:var(--gold)"></i>Neftçilər pr. 75</a></li>
+        <li style="color:rgba(255,255,255,0.3);font-size:0.88rem;padding-top:8px"><i class="fas fa-sun" style="margin-right:6px;color:var(--gold)"></i>B.E–Cüm: 09-20</li>
+        <li style="color:rgba(255,255,255,0.3);font-size:0.88rem"><i class="fas fa-sun" style="margin-right:6px;color:var(--gold)"></i>Şənbə: 09-18</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 SmileDent Klinika. Bütün hüquqlar qorunur.</p>
+    <p>Sayt <a href="https://www.instagram.com/getsite.az?igsh=Ym5wZzV3aWk4NDd4" target="_blank"><strong>GetSite</strong></a> tərəfindən hazırlanmışdır · <a href="tel:0997199929">099 719 99 29</a></p>
+  </div>
+  <div class="dev-credit" style="padding-bottom:20px">
+    🌐 Website developed by <strong>GetSite</strong> —
+    <a href="https://www.instagram.com/getsite.az?igsh=Ym5wZzV3aWk4NDd4" target="_blank" style="color:var(--gold)">Instagram</a> |
+    <a href="https://www.tiktok.com/@getsite.az?_r=1&_t=ZS-96z8TSg5DRS" target="_blank" style="color:var(--gold)">TikTok</a> |
+    <a href="tel:0997199929" style="color:var(--gold)">099 719 99 29</a>
+  </div>
+</footer>
+
+<script>
+/* ─── LOADER ─── */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+  }, 2000);
+});
+
+/* ─── NAVBAR SCROLL ─── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ─── HAMBURGER ─── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+/* ─── SCROLL REVEAL ─── */
+const reveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+/* ─── COUNTER ANIMATION ─── */
+function animateCounter(el, target, duration = 2000) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { el.textContent = target.toLocaleString(); clearInterval(timer); return; }
+    el.textContent = Math.floor(start).toLocaleString();
+  }, 16);
+}
+
+const statsSection = document.getElementById('stats');
+let counted = false;
+const statsObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting && !counted) {
+    counted = true;
+    animateCounter(document.getElementById('cnt1'), 5000);
+    animateCounter(document.getElementById('cnt2'), 15);
+    animateCounter(document.getElementById('cnt3'), 20);
+    animateCounter(document.getElementById('cnt4'), 10);
+  }
+}, { threshold: 0.3 });
+statsObserver.observe(statsSection);
+
+/* ─── FAQ ─── */
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ─── FORM → EMAILJS ─── */
+function submitForm() {
+  const name    = document.getElementById('fname').value.trim();
+  const phone   = document.getElementById('fphone').value.trim();
+  const email   = document.getElementById('femail').value.trim();
+  const service = document.getElementById('fservice').value;
+  const date    = document.getElementById('fdate').value;
+  const msg     = document.getElementById('fmsg').value.trim();
+
+  if (!name || !phone || !service || !date) {
+    alert('Zəhmət olmasa məcburi sahələri doldurun: Ad, Telefon, Xidmət, Tarix');
+    return;
+  }
+
+  // Format date
+  const dateObj = new Date(date);
+  const dateStr = dateObj.toLocaleDateString('az-AZ', { day:'numeric', month:'long', year:'numeric' });
+
+  // Disable button, show loading
+  const btn = document.querySelector('.form-submit');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Göndərilir...';
+
+  const templateParams = {
+    name:    name,
+    phone:   phone,
+    email:   email || 'Daxil edilməyib',
+    service: service,
+    date:    dateStr,
+    message: msg || 'Qeyd yoxdur'
+  };
+
+  emailjs.send('service_nnp604n', 'template_cnqeoyp', templateParams)
+    .then(() => {
+      // Success
+      btn.innerHTML = '<i class="fas fa-calendar-check"></i> Görüş Rezerv Et';
+      btn.disabled = false;
+      document.getElementById('formSuccess').style.display = 'block';
+      document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Reset
+      ['fname','fphone','femail','fmsg'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('fservice').value = '';
+      document.getElementById('fdate').value = '';
+    })
+    .catch((err) => {
+      btn.innerHTML = '<i class="fas fa-calendar-check"></i> Görüş Rezerv Et';
+      btn.disabled = false;
+      alert('Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin və ya bizimlə əlaqə saxlayın: 099 719 99 29');
+      console.error('EmailJS xəta:', err);
+    });
+}
+
+/* ─── SMOOTH ACTIVE NAV ─── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.style.color = '';
+    if (a.getAttribute('href') === '#' + current) a.style.color = 'var(--gold)';
+  });
+});
+
+/* ─── SET MIN DATE FOR FORM ─── */
+const dateInput = document.getElementById('fdate');
+const today = new Date();
+today.setDate(today.getDate() + 1);
+dateInput.min = today.toISOString().split('T')[0];
+</script>
+</body>
+</html>
